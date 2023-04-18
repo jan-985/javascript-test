@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>saction 08</title>
+    </head>
+    <body>
+        <button id="todo-button" onclick="changToDone()">todo</button>
+        <div id="conter">0</div>
+        <button onclick="countUp()">UP</button>
+        <button onclick="countDown()">Down</button>
+        
+        
+        <input type="text" id="text-in" />
+        <button onclick="addDiv()">Add Div</button>
+
+        <script>    
+            let cont = 0;
+
+            function changToDone(){
+                let button = document.getElementById('todo-button');
+                button.innerText = 'done';
+            }
+
+            
+
+            function countUp(){
+                cont = cont + 10;
+                let conter = document.getElementById("conter");
+                conter .innerText = cont;
+            }
+            
+            function countDown(){
+                cont = cont - 1;
+                let conter = document.getElementById("conter");
+                conter .innerText = cont;
+            }
+
+            // ex 8 
+
+            function addDiv(textIn){
+                let textbox = document.getElementById('text-in');
+                let title = textbox.value;
+                
+                let div = document.createElement('div');
+                div.innerText = title;
+                document.body.appendChild(div);
+
+            }
+
+        </script>
+
+    </body>
+</html>
