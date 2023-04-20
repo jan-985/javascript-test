@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <style>
+      input {
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        border-color: blue;
+        border-width: 3px;
+        border-style: solid;
+      }
+      #price {
+        width: 60px;
+      }
+      #quantity {
+        width: 60px;
+      }
+      button {
+        position: absolute;
+        width: 150px;
+        height: 55px;
+        margin-top: 1px;
+        margin-left: 20px;
+        border-radius: 10px;
+        border-width: 3px;
+        color: blue;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: rgb(236, 196, 196);
+      }
+      button:hover{
+        opacity: 0.7;
+      }
+      button:active{
+        scale: 0.95;
+      }
+      div {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        line-height: 25px;
+        margin-top: 10px;
+        font-weight: bold;
+        color: rgb(9, 9, 105);
+        background-color: beige;
+      }
+    </style>
+</head>
+<body>
+    
+    <input id="name" type="text">
+    <input id="price" type="number">
+    <input id="quantity" type="number">
+    <button onclick="addTodo()">Add Todo</button>
+
+    <div id="todo-list"></div>
+    
+    <script>    
+        const todos =[{
+            name:'Apple',
+            price:4,
+            quantity:2
+        },{
+            name:'orange',
+            price:5,
+            quantity:3
+        }]
+        
+        rander();
+
+        function addTodo() {
+            let textbox = document.getElementById('name'); 
+            let name = textbox.value;
+            let priceFood = document.getElementById('price');
+            let price = priceFood.value;
+            let quantityFood = document.getElementById('quantity');
+            let quantity = quantityFood.value;
+            todos.push({
+                name: name,
+                price: price,
+                quantity: quantity
+            });
+
+            rander();
+        }
+
+        function rander(){
+            document.getElementById('todo-list').innerHTML = '';
+
+            todos.forEach(function (todo) {
+                let element = document.createElement('div');
+                element.innerText = todo.name+' '+ price +' '+ quantity ;
+                let todoList = document.getElementById('todo-list');
+                todoList.appendChild(element);
+                
+            });
+            console.log(todos);
+            
+        }
+        
+
+        
+
+    </script>
+</body>
+</html>
