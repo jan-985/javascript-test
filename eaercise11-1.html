@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercise 11-1 </title>
+</head>
+
+<body>
+  <script>
+        let total = 0;
+        
+
+        function createCart(foodPrices) {
+          const foods = Object.keys(foodPrices);
+
+          foods.forEach(function (food) {
+            const cartItem = document.createElement('div');
+
+            const foodPrice = foodPrices[food];
+            cartItem.innerText = food + ' $' + foodPrice;
+
+            const addButton = document.createElement('button');
+            addButton.innerText = 'Add';
+
+            addButton.onclick = function () {
+              total = total + foodPrice;
+              const cartTotal = document.getElementById('cartTotal');
+              cartTotal.innerText = 'total' + ' ' + ' = ' + ' ' + total;
+              cartTotal.style = "margin-top = 30px";
+            };
+
+
+            cartItem.appendChild(addButton);
+
+            document.body.appendChild(cartItem);
+          });
+        }
+
+    createCart({ Apple: 3, Orange: 4, Egg: 2, banana:5 });
+    
+  </script>
+  <div>------------------</div>
+  <div id="cartTotal"></div>
+</body>
+</html>
